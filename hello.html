@@ -5,26 +5,50 @@
   <title>You clicked it 😏</title>
   <script>
     window.onload = function() {
-      alert("Hello, world!");
+      setTimeout(() => {
+        alert("They’re watching now...");
+      }, 1000);
     };
   </script>
   <style>
+    @keyframes flicker {
+      0% { box-shadow: 0 0 5px #ff00ff; }
+      50% { box-shadow: 0 0 20px #00ffff, 0 0 5px #ff00ff; }
+      100% { box-shadow: 0 0 5px #ff00ff; }
+    }
+
     body {
-      background-color: #000;
+      background: radial-gradient(#0b0010, #000);
+      background-image: url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
+      background-size: 400px 400px;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
+      cursor: crosshair;
+      font-family: 'Courier New', monospace;
+      color: #ff66cc;
+      text-shadow: 0 0 10px #ff00ff;
     }
+
     img {
-      max-width: 90%;
-      max-height: 90%;
+      max-width: 80%;
+      max-height: 80%;
       cursor: pointer;
+      border: 2px solid #ff00ff;
+      border-radius: 8px;
+      animation: flicker 1.2s infinite alternate;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    img:hover {
+      transform: scale(1.03) rotate(0.5deg);
+      filter: contrast(120%) brightness(1.1);
     }
   </style>
 </head>
 <body>
-  <img src="meme.png" alt="funny meme">
+  <img src="meme.png" alt="jinx cursed meme">
 </body>
 </html>
