@@ -3,13 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>💣 Gotcha 😈</title>
-  <script>
-    window.onload = function() {
-      setTimeout(() => {
-        alert("They’re watching now... 💥🔮");
-      }, 1000);
-    };
-  </script>
   <style>
     @keyframes flicker {
       0% { box-shadow: 0 0 5px #ff00ff; }
@@ -21,6 +14,14 @@
       0% { transform: scale(1); opacity: 0.8; }
       50% { transform: scale(1.05); opacity: 1; }
       100% { transform: scale(1); opacity: 0.8; }
+    }
+
+    @keyframes float-around {
+      0% { transform: translate(0px, 0px) rotate(0deg); }
+      25% { transform: translate(20px, -30px) rotate(-2deg); }
+      50% { transform: translate(-25px, 10px) rotate(1deg); }
+      75% { transform: translate(15px, 25px) rotate(-3deg); }
+      100% { transform: translate(0px, 0px) rotate(0deg); }
     }
 
     body {
@@ -37,6 +38,7 @@
       font-family: 'Courier New', monospace;
       color: #ff66cc;
       text-shadow: 0 0 10px #ff00ff;
+      overflow: hidden;
     }
 
     .meme-img {
@@ -56,10 +58,18 @@
     }
 
     .jinx-text {
-      font-size: 1.4em;
-      text-align: center;
+      font-size: 1.2em;
       line-height: 1.5;
-      animation: pulse 2s infinite;
+      text-align: center;
+      background: rgba(20, 0, 40, 0.7);
+      padding: 20px 30px;
+      border: 2px dashed #ff00ff;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #ff00ff;
+      animation: pulse 2s infinite, float-around 6s infinite ease-in-out;
+      position: absolute;
+      top: 10%;
+      left: 10%;
     }
 
     .jinx-text span {
